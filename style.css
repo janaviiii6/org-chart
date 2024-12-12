@@ -1,0 +1,178 @@
+/* Reset styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Organizational Chart Container */
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card Wrapper */
+.card-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 5px;
+}
+
+/* Image Container */
+.image-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #edebeb;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -50px; 
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card Styling */
+.card {
+    background: #edebeb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #edebeb;
+    border-radius: 8px;
+    text-align: center;
+    padding: 18px 6px;
+    width: 200px; 
+    height: 40px; 
+    position: relative;
+    margin-top: 35px;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.emp-name {
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #4b4b4b;
+}
+
+.emp-des {
+    font-size: 16px;
+    color: #4b4b4b;
+    font-weight: 500;
+}
+
+/* Card Text */
+.card p {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Card Hover Effect */
+.card.expandable:hover {
+    background-color: #023e8a;
+    color: white;
+    position: relative;
+}
+
+.card.expandable:hover p {
+    opacity: 0.1; 
+}
+
+.card.expandable::after {
+    content: '^';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    font-size: 2rem;
+    color: transparent;
+    z-index: 2;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+}
+
+.card.expandable:hover::after {
+    color: #fff; 
+    transform: translate(-50%, -50%) rotate(180deg); 
+}
+
+.level-container{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.level-0 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.level-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.level-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.level-3,
+.level-4,
+.level-5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.card-wrapper.level-1 .card {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.card-wrapper.level-2 .card {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+@media screen and (max-width: 768px) {
+    .level-container {
+        justify-content: space-between;
+    }
+}
